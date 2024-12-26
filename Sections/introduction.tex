@@ -1,64 +1,118 @@
-\subsection{Style}
+Reasoning is an essential aspect of artificial intelligence, with applications 
+spanning various domains such as problem-solving, theorem proving, 
+decision-making, and robotics (Manning, 2022). According to the book Thinking, 
+Fast and Slow (Daniel, 2017), humans possess two cognitive systems: "System 1" 
+and "System 2." "System 1" operates quickly, relying on instincts, emotions, 
+intuition, and unconscious processes. In contrast, "System 2" functions more 
+slowly, handling tasks that require reasoning, such as algorithmic reasoning, 
+logical analysis, and mathematical abilities. Reasoning plays a crucial role 
+as one of the key functions of "System 2" (Bengio, 2017; Weston and Sukhbaatar, 
+2023). 
+
+Reasoning can be divided into two main types: formal language reasoning and 
+natural language reasoning g (Reiter, 1975; Berzonsky, 1978; Teig and Scherer, 
+2016; Yu et al., 2023a; Zhao et al., 2023b; Li et al., 2023u). Formal language 
+reasoning is commonly used in fields such as formal verification of software and hardware 
+systems, theorem proving, and automated reasoning (Reiter, 1975; Berzonsky, 1978). 
+On the other hand, natural language reasoning enables more intuitive human-computer 
+interactions and supports tasks such as question answering (Shao et al., 2023;
+Jiang et al., 2021c), information retrieval l (Zhu et al., 2023d; Ai et al., 2023), text 
+summarizationn (Liu et al., 2023n), and sentiment analysis (Yu et al., 2023a; Araci, 2019;
+Barbieri et al., 2021).
+
+Since their inception, foundation models (Bommasani et al., 2021)  have demonstrated 
+remarkable effectiveness in various fields such as natural language processing 
+(Qiao et al., 2022), computer vision (Wang et al., 2023h), and multimodal tasks  
+(Li, 2023). Foundation models typically consist of billions of parameters and 
+undergo(pre-)training using self-supervised learning (Jain et al., 2023) on a 
+broad dataset (Bommasani et al., 2021). . After (pre-)trained, foundation models 
+can be fine-tuned to tackle a wide range of tasks through methods such as task-specific 
+fine-tuning, linear probing, or prompt engineering, demonstrating remarkable 
+generalizability and impressive accuracy (Bommasani et al., 2021; Qiu et al., 2023a)
+
+As a rapidly growing field in artificial intelligence research, reasoning with 
+foundation models aims to develop models capable of understanding and interacting 
+with complex information in a more human-like manner. These models are designed to 
+reason about abstract concepts and make decisions based on logical rules. First, 
+reasoning with foundation models enables the application of prior knowledge and 
+domain expertise. Logical rules can be derived from expert knowledge or formalized 
+from existing ontologies or knowledge graphs. By leveraging prior knowledge, these 
+models can benefit from a better understanding of the problem domain and make more 
+informed decisions. Second, reasoning with foundation models can enhance robustness 
+and generalization capabilities. By incorporating the information contained in large 
+datasets, these models are better equipped to handle situations involving limited data 
+or scenarios not encountered during deployment. This enables the creation of more 
+reliable and robust models suitable for real-world applications.
+
+Reasoning encompasses a wide range of aspects, including Commonsense Reasoning, 
+Mathematical Reasoning, Logical Reasoning, Causal Reasoning, Visual Reasoning, 
+Audio Reasoning, Multimodal Reasoning, Embodied Reasoning, and Defeasible Reasoning. 
+In this study, we focus on two specific aspects of reasoning: Commonsense Reasoning 
+and Causal Reasoning.
 
 
-Papers to be submitted to NeurIPS 2024 must be prepared according to the
-instructions presented here. Papers may only be up to {\bf nine} pages long,
-including figures. Additional pages \emph{containing only acknowledgments and
-references} are allowed. Papers that exceed the page limit will not be
-reviewed, or in any other way considered for presentation at the conference.
+
+% \subsection{Style}
 
 
-The margins in 2024 are the same as those in previous years.
+% Papers to be submitted to NeurIPS 2024 must be prepared according to the
+% instructions presented here. Papers may only be up to {\bf nine} pages long,
+% including figures. Additional pages \emph{containing only acknowledgments and
+% references} are allowed. Papers that exceed the page limit will not be
+% reviewed, or in any other way considered for presentation at the conference.
 
 
-Authors are required to use the NeurIPS \LaTeX{} style files obtainable at the
-NeurIPS website as indicated below. Please make sure you use the current files
-and not previous versions. Tweaking the style files may be grounds for
-rejection.
+% The margins in 2024 are the same as those in previous years.
 
 
-\subsection{Retrieval of style files}
+% Authors are required to use the NeurIPS \LaTeX{} style files obtainable at the
+% NeurIPS website as indicated below. Please make sure you use the current files
+% and not previous versions. Tweaking the style files may be grounds for
+% rejection.
 
 
-The style files for NeurIPS and other conference information are available on
-the website at
-\begin{center}
-  \url{http://www.neurips.cc/}
-\end{center}
-The file \verb+neurips_2024.pdf+ contains these instructions and illustrates the
-various formatting requirements your NeurIPS paper must satisfy.
+% \subsection{Retrieval of style files}`'
 
 
-The only supported style file for NeurIPS 2024 is \verb+neurips_2024.sty+,
-rewritten for \LaTeXe{}.  \textbf{Previous style files for \LaTeX{} 2.09,
-  Microsoft Word, and RTF are no longer supported!}
+% The style files for NeurIPS and other conference information are available on
+% the website at
+% \begin{center}
+%   \url{http://www.neurips.cc/}
+% \end{center}
+% The file \verb+neurips_2024.pdf+ contains these instructions and illustrates the
+% various formatting requirements your NeurIPS paper must satisfy.
 
 
-The \LaTeX{} style file contains three optional arguments: \verb+final+, which
-creates a camera-ready copy, \verb+preprint+, which creates a preprint for
-submission to, e.g., arXiv, and \verb+nonatbib+, which will not load the
-\verb+natbib+ package for you in case of package clash.
+% The only supported style file for NeurIPS 2024 is \verb+neurips_2024.sty+,
+% rewritten for \LaTeXe{}.  \textbf{Previous style files for \LaTeX{} 2.09,
+%   Microsoft Word, and RTF are no longer supported!}
 
 
-\paragraph{Preprint option}
-If you wish to post a preprint of your work online, e.g., on arXiv, using the
-NeurIPS style, please use the \verb+preprint+ option. This will create a
-nonanonymized version of your work with the text ``Preprint. Work in progress.''
-in the footer. This version may be distributed as you see fit, as long as you do not say which conference it was submitted to. Please \textbf{do
-  not} use the \verb+final+ option, which should \textbf{only} be used for
-papers accepted to NeurIPS.
+% The \LaTeX{} style file contains three optional arguments: \verb+final+, which
+% creates a camera-ready copy, \verb+preprint+, which creates a preprint for
+% submission to, e.g., arXiv, and \verb+nonatbib+, which will not load the
+% \verb+natbib+ package for you in case of package clash.
 
 
-At submission time, please omit the \verb+final+ and \verb+preprint+
-options. This will anonymize your submission and add line numbers to aid
-review. Please do \emph{not} refer to these line numbers in your paper as they
-will be removed during generation of camera-ready copies.
+% \paragraph{Preprint option}
+% If you wish to post a preprint of your work online, e.g., on arXiv, using the
+% NeurIPS style, please use the \verb+preprint+ option. This will create a
+% nonanonymized version of your work with the text ``Preprint. Work in progress.''
+% in the footer. This version may be distributed as you see fit, as long as you do not say which conference it was submitted to. Please \textbf{do
+%   not} use the \verb+final+ option, which should \textbf{only} be used for
+% papers accepted to NeurIPS.
 
 
-The file \verb+neurips_2024.tex+ may be used as a ``shell'' for writing your
-paper. All you have to do is replace the author, title, abstract, and text of
-the paper with your own.
+% At submission time, please omit the \verb+final+ and \verb+preprint+
+% options. This will anonymize your submission and add line numbers to aid
+% review. Please do \emph{not} refer to these line numbers in your paper as they
+% will be removed during generation of camera-ready copies.
 
 
-The formatting instructions contained in these style files are summarized in
-Sections \ref{gen_inst} and \ref{others} below.
+% The file \verb+neurips_2024.tex+ may be used as a ``shell'' for writing your
+% paper. All you have to do is replace the author, title, abstract, and text of
+% the paper with your own.
+
+
+% The formatting instructions contained in these style files are summarized in
+% Sections \ref{gen_inst}, \ref{headings}, and \ref{others} below.
