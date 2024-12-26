@@ -1,133 +1,48 @@
-\label{others}
+\subsection{Evaluating Casual Reasoning in Large Language Models}
 
+\subsubsection{Introduction}
+Based on the aforementioned methods for evaluating the causal reasoning abilities of large language models, in this section, we will conduct an assessment 
+and examine the capabilities of modern language models in this type of reasoning through various prompting techniques.
 
-These instructions apply to everyone.
+\paragraph{Datasets} We evaluate using the COPA dataset, which is utilized for assessing causal reasoning abilities across a broad domain. 
+COPA consists of 1000 questions, equally divided into two sets: a development set and a test set, each containing 500 questions (here, we will use the first 100 questions from the test set for evaluation). Each question includes a premise and two alternative choices. 
+The primary task for LLMs is to provide answers A and B, such that the selected answer has a closer causal relationship to the premise.
 
+\paragraph{Model and Prompting Techniques} To evaluate causal reasoning abilities, we conducted tests on four different models, all with a size of 7B parameters, including: Llama3-7B, Mistral-7B, Gemma-7B, and Qwen2-7B.
+These are all newly released models that have achieved some impressive results in several LLM benchmarks. Simultaneously, we employed four different prompting methods: Few-shot learning + COT, Zero-shot learning + COT, Few-shot learning, and Zero-shot learning for each of the models mentioned above
 
-\subsection{Citations within the text}
+\subsubsection{Results}
+We performed inference using Ollama with the four models mentioned above, following the four different prompting approaches. Simultaneously, we used two metrics for evaluation: Accuracy and F1-score. This is appropriate because the task requires providing a correct result, specifically label A or label B. 
+Below is a table comparing the results of each model across the different prompting methods (using 100 questions from the COPA dataset's test set).
 
-
-The \verb+natbib+ package will be loaded for you by default.  Citations may be
-author/year or numeric, as long as you maintain internal consistency.  As to the
-format of the references themselves, any style is acceptable as long as it is
-used consistently.
-
-
-The documentation for \verb+natbib+ may be found at
-\begin{center}
-  \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
-\end{center}
-Of note is the command \verb+\citet+, which produces citations appropriate for
-use in inline text.  For example,
-\begin{verbatim}
-   \citet{hasselmo} investigated\dots
-\end{verbatim}
-produces
-\begin{quote}
-  Hasselmo, et al.\ (1995) investigated\dots
-\end{quote}
-
-
-If you wish to load the \verb+natbib+ package with options, you may add the
-following before loading the \verb+neurips_2024+ package:
-\begin{verbatim}
-   \PassOptionsToPackage{options}{natbib}
-\end{verbatim}
-
-
-If \verb+natbib+ clashes with another package you load, you can add the optional
-argument \verb+nonatbib+ when loading the style file:
-\begin{verbatim}
-   \usepackage[nonatbib]{neurips_2024}
-\end{verbatim}
-
-
-As submission is double blind, refer to your own published work in the third
-person. That is, use ``In the previous work of Jones et al.\ [4],'' not ``In our
-previous work [4].'' If you cite your other papers that are not widely available
-(e.g., a journal paper under review), use anonymous author names in the
-citation, e.g., an author of the form ``A.\ Anonymous'' and include a copy of the anonymized paper in the supplementary material.
-
-
-\subsection{Footnotes}
-
-
-Footnotes should be used sparingly.  If you do require a footnote, indicate
-footnotes with a number\footnote{Sample of the first footnote.} in the
-text. Place the footnotes at the bottom of the page on which they appear.
-Precede the footnote with a horizontal rule of 2~inches (12~picas).
-
-
-Note that footnotes are properly typeset \emph{after} punctuation
-marks.\footnote{As in this example.}
-
-
-\subsection{Figures}
-
-
-\begin{figure}
+\begin{table}[ht]
   \centering
-  \fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-  \caption{Sample figure caption.}
-\end{figure}
+  \begin{tabular}{|l|c|c|c|c|}
+      \hline
+      \textbf{Model}    & \textbf{Few-shot + COT} & \textbf{Few-shot} & \textbf{Zero-shot} & \textbf{Zero-shot + COT} \\ \hline
 
+      Llama3-7B & 0.9, 0.87  & 0.88, 0.82  & 0.6, 0.62  & 0.73, 0.75  \\ \hline 
 
-All artwork must be neat, clean, and legible. Lines should be dark enough for
-purposes of reproduction. The figure number and caption always appear after the
-figure. Place one line space before the figure caption and one line space after
-the figure. The figure caption should be lower case (except for first word and
-proper nouns); figures are numbered consecutively.
+      Gemma2-7B & 0.94, 0.9 & 0.83, 0.86 & 0.7, 0.75 & 0.77, 0.8 \\ \hline 
 
+      Mistral-7b & 0.95, 0.96 & 0.89, 0.91 & 0.62, 0.65 & 0.7, 0.72 \\ \hline
 
-You may use color figures.  However, it is best for the figure captions and the
-paper body to be legible if the paper is printed in either black/white or in
-color.
+      Qwen2-7B & 0.97, 0.92 & 0.9, 0.86 & 0.72, 0.78 & 0.84, 0.84 \\ \hline
 
-
-\subsection{Tables}
-
-
-All tables must be centered, neat, clean and legible.  The table number and
-title always appear before the table.  See Table~\ref{sample-table}.
-
-
-Place one line space before the table title, one line space after the
-table title, and one line space after the table. The table title must
-be lower case (except for first word and proper nouns); tables are
-numbered consecutively.
-
-
-Note that publication-quality tables \emph{do not contain vertical rules.} We
-strongly suggest the use of the \verb+booktabs+ package, which allows for
-typesetting high-quality, professional tables:
-\begin{center}
-  \url{https://www.ctan.org/pkg/booktabs}
-\end{center}
-This package was used to typeset Table~\ref{sample-table}.
-
-
-\begin{table}
-  \caption{Sample table title}
-  \label{sample-table}
-  \centering
-  \begin{tabular}{lll}
-    \toprule
-    \multicolumn{2}{c}{Part}                   \\
-    \cmidrule(r){1-2}
-    Name     & Description     & Size ($\mu$m) \\
-    \midrule
-    Dendrite & Input terminal  & $\sim$100     \\
-    Axon     & Output terminal & $\sim$10      \\
-    Soma     & Cell body       & up to $10^6$  \\
-    \bottomrule
   \end{tabular}
+  \caption{Comparison of models across different prompting methods (accuracy - left, F1-score - right)}
+  \label{tab:model_comparison}
 \end{table}
 
 
-\subsection{Final instructions}
+Based on the information provided in the table, it can be observed that most models achieve good results when using the few-shot learning method combined with COT. Conversely, using zero-shot alone does not yield high performance. 
+This suggests that few-shot + CoT is an effective method for optimizing the causal reasoning ability of LLMs.Qwen2-7B demonstrates the best performance in most cases, particularly with the Few-shot + COT method (0.97). 
+This indicates that it is a relatively strong model in terms of reasoning ability and well-suited for this type of prompting. Additionally, Gemma2-7B and Llama3-7B have relatively similar performance, with Gemma2-7B performing slightly better.
 
-Do not change any aspects of the formatting parameters in the style files.  In
-particular, do not modify the width or length of the rectangle the text should
-fit into, and do not change font sizes (except perhaps in the
-\textbf{References} section; see below). Please note that pages should be
-numbered.
+In summary, our experiment has yielded the following findings:
+
+\begin{enumerate}
+  \item The Few-shot + COT method is the most effective for enhancing causal reasoning abilities in LLMs.
+  \item Qwen2-7B is the best-performing model in terms of causal reasoning, particularly with the Few-shot + COT method.
+  \item Zero-shot learning alone is not effective for improving causal reasoning abilities.
+\end{enumerate}
