@@ -1,0 +1,45 @@
+\usepackage{amsmath}  % For mathematical equations
+\usepackage{natbib}   % For citations
+
+\subsection{Benchmark and Metrics for Commonsense Reasoning}
+
+In addition to CQA \citep{Talmor2019} and CoS-E \citep{Rajani2019}, there are several other benchmarks available for evaluating commonsense reasoning (Table~\ref{tab:commonsense_benchmarks}):
+
+\begin{itemize}
+    \item \textbf{PHYRE} (PHYsical REasoning) benchmark \citep{Bakhtin2019} consists of 25 task templates that focus on physical reasoning.
+    
+    \item \textbf{CConS} (Counter-commonsense Contextual Size comparison) dataset \citep{Kondo2023} investigates the impact of physical commonsense on the contextualized size comparison task. It includes both contexts that align with physical commonsense and those that deviate from it. The dataset comprises 139 templates and automatically generates 1,112 examples.
+    
+    \item \textbf{SummEdits} \citep{Laban2023} is a benchmark spanning 10 domains. It is designed to be more cost-effective per sample compared to previous benchmarks, offering a 20-fold improvement in efficiency. The benchmark is highly reproducible and aims to evaluate the performance of Language Model-based Systems (LLMs) on complex tasks, addressing issues with existing evaluation benchmarks.
+\end{itemize}
+
+Furthermore, commonsense knowledge encompasses various categories, including physical commonsense, social commonsense, and temporal commonsense. Benchmarks in this domain generally fall into two tasks:
+
+\begin{enumerate}
+    \item \textbf{Multiple-choice evaluation}: Benchmarks such as SWAG \citep{Zellers2018}, HellaSWAG \citep{Zellers2019}, Social IQA \citep{Sap2019}, and PIQA \citep{Bisk2020} require models to select the correct answer from a set of options.
+    
+    \item \textbf{Generative evaluation} \citep{Lin2020a}: Benchmarks like ProtoQA \citep{Boratko2020} and CommonGen \citep{Lin2020b} involve generating answers based on provided questions and context.
+\end{enumerate}
+
+Rainbow \citep{Lourie2021} is a universal commonsense reasoning benchmark that integrates six existing tasks:
+\begin{enumerate}
+    \item $\alpha$NLI \citep{Bhagavatula2019} - A benchmark for abductive reasoning that requires models to find the most plausible explanation for a given observation
+    \item Cosmos QA \citep{Huang2019} - A reading comprehension dataset focused on commonsense reasoning about everyday scenarios
+    \item HellaSWAG \citep{Zellers2019} - A more challenging version of SWAG that tests physical commonsense through multiple-choice questions
+    \item PIQA \citep{Bisk2020} - Physical Interaction Question Answering benchmark that evaluates understanding of physical commonsense
+    \item Social IQA \citep{Sap2019} - Tests reasoning about social interactions and emotional responses in everyday situations
+    \item WinoGrande \citep{Sakaguchi2021} - A large-scale dataset of Winograd Schema Challenge problems testing commonsense reasoning
+\end{enumerate}
+It covers both social and physical commonsense reasoning and provides a comprehensive evaluation platform.
+
+\subsection{Metrics}
+
+In multiple-choice benchmarks, accuracy is the primary metric used to evaluate a model's ability to select the correct answer. However, in language generation evaluations, automated metrics like BLEU \citep{Papineni2002} may not always align perfectly with human judgment, so they should be used with caution.
+
+In the case of the PHYRE benchmark \citep{Bakhtin2019}, a metric measuring performance called AUCCESS is computed. AUCCESS aggregates the success percentages across different attempts by using a weighted average. The formula for AUCCESS is:
+
+\begin{equation}
+    \text{AUCCESS} = \frac{\sum_k w_k \cdot s_k}{\sum_k w_k}
+\end{equation}
+
+where $w_k = \log(k+1) - \log(k)$ represents weights that place more emphasis on tasks with fewer attempts, and $s_k$ denotes the success percentage at the $k$-th attempt. AUCCESS takes into account the performance across multiple attempts and provides a more comprehensive evaluation that rewards models for solving tasks with fewer attempts.
