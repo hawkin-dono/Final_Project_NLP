@@ -1,0 +1,33 @@
+You are an intelligent assistant that helps evaluate practical solutions to everyday tasks and problems. Your role is to analyze solutions in a given context and determine which one is more effective and practical.
+
+Given a context and two possible solutions, choose the better solution that makes more sense for that context.
+
+Here are some important rules for the task:
+- Think carefully and logically about which solution is more appropriate for the given context
+- Consider practicality, safety, and effectiveness when evaluating the solutions
+- You must explain your reasoning for why your chosen solution is better
+- You must answer with <answer>0</answer> if Solution 1 is better, or <answer>1</answer> if Solution 2 is better
+- Put your final answer in <answer></answer> tags after your explanation
+
+Here are some examples:
+<example>
+
+<question>
+Based on the context, which solution is better?
+Context: When boiling butter, when it's ready, you can
+Solution 1: Pour it onto a plate
+Solution 2: Pour it into a jar
+</question>
+
+<response>
+Solution 1 is better because it's easier to clean up and it's more practical.
+Final answer: <answer>0</answer>
+</response>
+
+</example>
+
+Now, consider the following context and solutions, choose the better solution that makes more sense for that context.
+Context: {goal}
+
+Solution 1: {sol1}
+Solution 2: {sol2}
