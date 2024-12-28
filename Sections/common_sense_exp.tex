@@ -1,0 +1,40 @@
+\subsection{Evaluating Commonsense Reasoning in Large Language Models}
+
+\subsubsection{Introduction}
+Based on the aforementioned methods for evaluating the causal reasoning abilities of large language models, in this section, we will conduct an assessment 
+and examine the capabilities of modern language models in this type of reasoning through various prompting techniques.
+
+\paragraph{Datasets} We evaluate using two datasets: PIQA (Physical Interaction: Question Answering) and CoS-E (Common Sense Explanations).
+
+The PIQA dataset is designed to assess physical commonsense reasoning abilities. It consists of 16,113 training examples and 1,838 test examples, focusing on questions about everyday physical interactions and procedures (here, we will use 100 questions from the test set for evaluation). Each question presents a goal and two possible solutions - one that correctly achieves the goal and one that is incorrect. The dataset covers a wide range of physical commonsense knowledge, from simple tasks like "how to make a paper airplane" to more complex scenarios involving tool use and physical transformations.
+
+The CoS-E dataset is designed to evaluate commonsense reasoning with natural language explanations. It contains over 10,000 questions from the CommonsenseQA dataset, augmented with human-authored explanations (we will use 100 questions from the test set). Each question comes with 3 answer choices and human-written explanations justifying the correct answer. The questions cover diverse topics requiring commonsense knowledge about everyday situations, relationships, and causality.
+
+For both datasets, the primary task for LLMs is to select the correct answer choice (labeled as A/B for PIQA and A/B/C for CoS-E) based on commonsense reasoning about the given context.
+
+\paragraph{Model and Techniques} To evaluate causal reasoning abilities, we conducted tests on four different models, all with a size of 7B parameters, including: Llama3-7B, Gemma-7B, and Qwen2-7B.
+These are all newly released models that have achieved some impressive results in several LLM benchmarks. For evaluation, we employed one-shot learning with chain-of-thought (COT) prompting and measured accuracy for each model's performance.
+
+\subsubsection{Results}
+
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{|l|c|c|c|c|}
+      \hline
+      \textbf{Model} & \textbf{PIQA} & \textbf{CoS-E} \\ \hline
+      
+      Llama3.1-8B & 0.72 & 0.71 \\ \hline
+      
+      Gemini 1.5 flash & 0.78 & 0.74 \\ \hline
+      
+      Qwen2.5-7B & 0.75 & 0.73 \\ \hline
+
+  \end{tabular}
+  \caption{Model performance on commonsense reasoning benchmarks (accuracy scores)}
+  \label{tab:model_comparison}
+\end{table}
+
+Based on the results shown in the table, we can observe that Gemini 1.5 flash demonstrates the strongest performance across both datasets, achieving the highest accuracy scores of 0.78 on PIQA and 0.74 on CoS-E. Qwen2.5-7B shows moderate performance, ranking second with scores of 0.75 and 0.73 on PIQA and CoS-E respectively. Llama3.1-8B exhibits slightly lower performance compared to the other models, with scores of 0.72 on PIQA and 0.71 on CoS-E. Overall, all models perform better on the PIQA dataset compared to CoS-E, suggesting that physical commonsense reasoning may be easier for these models than general commonsense reasoning tasks.
+
+
