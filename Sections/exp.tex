@@ -48,34 +48,3 @@ In summary, our experiment has yielded the following findings:
 \end{enumerate}
 
 
-\subsection{Evaluating Commonsense Question and Answering in Large Language Models}
-
-\subsubsection{Introduction}
-This section focuses on assessing the ability of large language models to handle commonsense question-answering tasks. By employing various prompting techniques, we aim to evaluate and analyze their performance in understanding and reasoning about everyday scenarios and knowledge.
-
-\paragraph{Datasets}
-Our evaluation utilizes the ConceptNet dataset, a comprehensive resource for commonsense knowledge, to assess the commonsense question-answering abilities of large language models. The dataset consists of questions, each accompanied by four answer choices. The task for the models is to select the option that best aligns with the underlying commonsense knowledge required to answer the question correctly. This approach provides a focused evaluation of the models' reasoning and understanding of everyday concepts.
-
-
-\paragraph{Model and Prompting Techniques} 
-To evaluate causal reasoning abilities, we conducted tests on three different models, including Qwen-3B, Gemini, and Llama-3.2-3B. These models represent newly released advancements that have demonstrated impressive performance on several LLM benchmarks.
-
-\subsubsection{Results}
-The table below presents a comparison of the performance of each model across different prompting methods, evaluated using 50 questions from the test set of the ConceptNet dataset.
-
-\begin{table}[ht]
-  \centering
-  \begin{tabular}{|c|c|c|}
-      \hline
-      \textbf{Llama3-3B}    & \textbf{Gemini} & \textbf{Qwen2-3B} \\ \hline
-
-        0.64 & 0.86 & 0.58\\ \hline 
-
-  \end{tabular}
-  \caption{Comparison of models by accuracy.}
-  \label{tab:model_comparison}
-\end{table}
-
-The table presented the comparative performance of the three models: Llama3-3B, Gemini, and Qwen2-3B on a commonsense reasoning task using 50 questions from the ConceptNet dataset's test set. Gemini outperforms the other models with an accuracy of 0.86, showcasing superior commonsense reasoning capabilities. Llama3-3B achieves a competitive 0.64, while Qwen2-3B follows with 0.58, indicating reasonable performance but a notable gap compared to Gemini.
-They emphasize the strength of Gemini in leveraging commonsense knowledge effectively, while Llama3-3B and Qwen2-3B demonstrate moderate abilities with room for improvement. 
-The results highlights the potential of advancing model architectures and training methods to bridge the gap in reasoning capabilities, paving the way for more robust and accurate language models in the future.
