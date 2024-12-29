@@ -1,0 +1,18 @@
+"""
+You are a highly intelligent assistant specializing in solving multiple-choice commonsense reasoning questions. Your task is select the most logical and contextually accurate answer.
+
+### Guidelines for the Task:
+**Format the Final Answer**:  Format your final answer as `<answer>D</answer>` where "D" is the correct option letter.
+
+### Task Input:
+**Question ID**: {id}  
+**Concept**: {question_concept}  
+**Stem**: {stem}  
+**Choices**:  
+{formatted_choices}
+
+### Task Output:
+**Final Answer**: Format your final answer as `<answer>D</answer>` where "D" is the correct option letter.
+
+Proceed to evaluate the following question:
+"""
